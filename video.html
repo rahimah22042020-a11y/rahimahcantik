@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Video | My Little Website</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #fff8fc;
+    color: #66566c;
+}
+
+/* NAVBAR */
+.navbar {
+    background: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 15px #eacfe455;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 900;
+    color: #c47ba8;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #c47ba8;
+    font-weight: 800;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 65px 20px;
+    background: linear-gradient(135deg,#ffe5f0,#f2eaff,#fff5e8);
+}
+
+.header h1 {
+    font-size: 42px;
+    color: #795e83;
+    margin-bottom: 12px;
+}
+
+.header p {
+    color: #987f9c;
+    font-size: 16px;
+}
+
+/* VIDEO SECTION */
+.container {
+    max-width: 900px;
+    margin: 55px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    color: #795e83;
+    font-size: 30px;
+}
+
+.section-title p {
+    color: #a493a7;
+    margin-top: 8px;
+}
+
+/* VIDEO CARD */
+.video-card {
+    background: white;
+    padding: 18px;
+    border-radius: 28px;
+    box-shadow: 0 10px 30px #e6c9dd66;
+    transition: .3s;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px #d9a9cb66;
+}
+
+.video-card video {
+    width: 100%;
+    max-height: 480px;
+    background: #f5e6f2;
+    border-radius: 20px;
+    display: block;
+}
+
+/* VIDEO DESCRIPTION */
+.video-info {
+    text-align: center;
+    padding: 25px 15px 15px;
+}
+
+.video-info h3 {
+    font-size: 25px;
+    color: #c47ba8;
+    margin-bottom: 10px;
+}
+
+.video-info p {
+    color: #9c899f;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* DECORATION */
+.decoration {
+    text-align: center;
+    font-size: 28px;
+    margin: 30px;
+}
+
+/* BUTTON */
+.back {
+    text-align: center;
+    margin: 45px 0;
+}
+
+.back a {
+    display: inline-block;
+    padding: 14px 30px;
+    background: #d98ab5;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 900;
+    transition: .3s;
+}
+
+.back a:hover {
+    background: #bc6e9b;
+    transform: translateY(-4px);
+}
+
+/* FOOTER */
+footer {
+    background: #eac8df;
+    text-align: center;
+    padding: 25px;
+    color: #74577d;
+    font-weight: 800;
+}
+
+/* RESPONSIVE */
+@media(max-width:650px) {
+    .header h1 {
+        font-size: 32px;
+    }
+
+    .video-info h3 {
+        font-size: 21px;
+    }
+
+    .video-card {
+        padding: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">♡ My Website</div>
+    <a href="index.html">⌂ Kembali ke Home</a>
+</nav>
+
+<!-- HEADER -->
+<header class="header">
+    <h1>My Little Video 🎬</h1>
+    <p>One Video, A Thousand Memories ♡</p>
+</header>
+
+<!-- VIDEO CONTENT -->
+<main class="container">
+
+    <div class="section-title">
+        <h2>♡ My Favorite Video ♡</h2>
+        <p>Sebuah video kecil yang menyimpan banyak cerita.</p>
+    </div>
+
+    <!-- SATU VIDEO -->
+    <div class="video-card">
+
+        <video controls>
+            <source src="video1.mp4" type="video/mp4">
+            Browser kamu tidak mendukung pemutaran video.
+        </video>
+
+        <div class="video-info">
+            <h3>My Beautiful Memories 🌸</h3>
+
+            <p>
+                Setiap momen memiliki cerita tersendiri.
+                Melalui video ini, saya ingin mengabadikan
+                salah satu kenangan dan pengalaman
+                yang berharga dalam perjalanan hidup saya.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="decoration">
+        🌷 ✨ ♡ 🎀
+    </div>
+
+    <!-- KEMBALI -->
+    <div class="back">
+        <a href="index.html">♡ Kembali ke Beranda</a>
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <p>♡ Made with Love ♡</p>
+    <p>My Personal Website © 2026</p>
+    <p>Keep Growing, Keep Shining! ✨</p>
+</footer>
+
+</body>
+</html>

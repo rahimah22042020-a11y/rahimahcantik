@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biodata Diri | My Little Website</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #fff8fc;
+    color: #66566c;
+}
+
+/* NAVBAR */
+.navbar {
+    background: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 15px #eacfe455;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 900;
+    color: #c47ba8;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #c47ba8;
+    font-weight: 800;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 65px 20px;
+    background: linear-gradient(135deg,#ffe5f0,#f2eaff,#fff5e8);
+}
+
+.header h1 {
+    font-size: 42px;
+    color: #795e83;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #987f9c;
+}
+
+/* PROFILE */
+.container {
+    max-width: 1000px;
+    margin: 55px auto;
+    padding: 0 20px;
+}
+
+.profile-card {
+    background: white;
+    border-radius: 30px;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    box-shadow: 0 10px 30px #e6c9dd55;
+    margin-bottom: 35px;
+}
+
+.profile-photo {
+    width: 220px;
+    height: 260px;
+    border-radius: 25px;
+    background: #ffe5f0;
+    border: 5px solid #f7d5e7;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info h2 {
+    color: #c47ba8;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.profile-info p {
+    line-height: 1.8;
+}
+
+/* BIODATA */
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    color: #795e83;
+    margin-bottom: 25px;
+}
+
+.bio-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 18px;
+}
+
+.bio-item {
+    background: white;
+    padding: 22px;
+    border-radius: 20px;
+    box-shadow: 0 5px 18px #e6c9dd35;
+    transition: .3s;
+}
+
+.bio-item:hover {
+    transform: translateY(-5px);
+}
+
+.bio-item h3 {
+    color: #d184ae;
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.bio-item p {
+    color: #66566c;
+    font-weight: 700;
+}
+
+/* ABOUT */
+.about {
+    background: #fff0f7;
+    padding: 35px;
+    border-radius: 25px;
+    margin-top: 35px;
+    line-height: 1.9;
+    text-align: center;
+}
+
+.about h2 {
+    color: #c47ba8;
+    margin-bottom: 15px;
+}
+
+/* HOBI */
+.hobby {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.hobby-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.hobby-list span {
+    padding: 13px 23px;
+    background: white;
+    border-radius: 30px;
+    color: #c47ba8;
+    font-weight: 800;
+    box-shadow: 0 4px 15px #e6c9dd55;
+}
+
+/* BUTTON */
+.back {
+    text-align: center;
+    margin: 45px 0;
+}
+
+.back a {
+    display: inline-block;
+    padding: 14px 30px;
+    background: #d98ab5;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 900;
+    transition: .3s;
+}
+
+.back a:hover {
+    background: #bc6e9b;
+    transform: translateY(-4px);
+}
+
+/* FOOTER */
+footer {
+    background: #eac8df;
+    text-align: center;
+    padding: 25px;
+    color: #74577d;
+    font-weight: 800;
+}
+
+/* RESPONSIVE */
+@media(max-width:700px) {
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-photo {
+        width: 200px;
+        height: 230px;
+    }
+
+    .bio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header h1 {
+        font-size: 32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">♡ My Website</div>
+    <a href="index.html">⌂ Kembali ke Home</a>
+</nav>
+
+<!-- HEADER -->
+<header class="header">
+    <h1>My Biodata 🌷</h1>
+    <p>Let's Get to Know Me Better ♡</p>
+</header>
+
+<!-- CONTENT -->
+<main class="container">
+
+    <!-- PROFILE -->
+    <div class="profile-card">
+
+        <div class="profile-photo">
+            <!-- GANTI FOTO DENGAN FOTO KAMU -->
+            <img src="foto-profil.jpg" alt="Foto Profil">
+        </div>
+
+        <div class="profile-info">
+            <h2>Halo, Saya Aida! ♡</h2>
+
+            <p>
+                Selamat datang di halaman biodata saya.
+                Saya adalah seorang mahasiswa yang senang
+                belajar hal baru, mencoba pengalaman menarik,
+                dan terus mengembangkan kemampuan diri.
+                Melalui halaman ini, saya ingin berbagi sedikit
+                cerita tentang diri saya.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- DATA DIRI -->
+    <h2 class="section-title">♡ Identitas Diri ♡</h2>
+
+    <div class="bio-grid">
+
+        <div class="bio-item">
+            <h3>👩 Nama Lengkap</h3>
+            <p>Aida [Nama Lengkap]</p>
+        </div>
+
+        <div class="bio-item">
+            <h3>🎂 Tempat, Tanggal Lahir</h3>
+            <p>[Tempat, Tanggal Lahir]</p>
+        </div>
+
+        <div class="bio-item">
+            <h3>🏡 Alamat</h3>
+            <p>[Alamat Lengkap]</p>
+        </div>
+
+        <div class="bio-item">
+            <h3>🎓 Pendidikan</h3>
+            <p>Universitas Lambung Mangkurat</p>
+        </div>
+
+        <div class="bio-item">
+            <h3>📚 Fakultas</h3>
+            <p>[Nama Fakultas dan Program Studi]</p>
+        </div>
+
+        <div class="bio-item">
+            <h3>💌 Status</h3>
+            <p>Mahasiswa</p>
+        </div>
+
+    </div>
+
+    <!-- TENTANG SAYA -->
+    <div class="about">
+
+        <h2>🌸 About Me 🌸</h2>
+
+        <p>
+            Saya merupakan pribadi yang suka belajar,
+            mengeksplorasi hal baru, dan mendapatkan
+            pengalaman dari berbagai kegiatan.
+            Bagi saya, setiap proses adalah kesempatan
+            untuk tumbuh menjadi pribadi yang lebih baik.
+            Saya percaya bahwa setiap langkah kecil
+            memiliki arti dalam perjalanan meraih impian.
+        </p>
+
+    </div>
+
+    <!-- HOBI -->
+    <div class="hobby">
+
+        <h2 class="section-title">♡ My Hobbies ♡</h2>
+
+        <div class="hobby-list">
+            <span>📖 Membaca</span>
+            <span>🏃‍♀️ Olahraga</span>
+            <span>🌿 Menjelajah Alam</span>
+            <span>📸 Fotografi</span>
+            <span>🎨 Kreativitas</span>
+        </div>
+
+    </div>
+
+    <!-- BACK BUTTON -->
+    <div class="back">
+        <a href="index.html">♡ Kembali ke Beranda</a>
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <p>♡ Made with Love ♡</p>
+    <p>My Personal Website © 2026</p>
+    <p>Keep Growing, Keep Shining! ✨</p>
+</footer>
+
+</body>
+</html>

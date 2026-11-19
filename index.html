@@ -1,92 +1,188 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Halaman Tugas 1 Portofolio Saya">
   <title>Tugas 1 – Portofolio Saya</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-:root {
-  --bg: #fff4f8;
-  --card: #ffffff;
-  --ink: #3d1530;
-  --muted: #8f5c78;
-  --pink: #ec4899;
-  --pink-deep: #be185d;
-  --pink-soft: #fde4ef;
-  --border: #f8c8dd;
-  --shadow: 0 10px 30px -12px rgba(190, 24, 93, .28);
-}
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: "Quicksand", "Segoe UI", system-ui, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.65;
-}
-a { color: var(--pink-deep); text-decoration: none; }
-a:hover { text-decoration: underline; }
 
-.header {
-  padding: 40px 24px;
-  text-align: center;
-  color: #fff;
-  background: linear-gradient(135deg, #f472b6 0%, #ec4899 45%, #be185d 100%);
-}
-.header h1 {
-  margin: 0;
-  font-family: "Pacifico", cursive;
-  font-size: clamp(34px, 6vw, 54px);
-  font-weight: 400;
-}
-.tabs {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 20px;
-  overflow-x: auto;
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-}
-.tabs a {
-  padding: 8px 22px;
-  font-weight: 700;
-  white-space: nowrap;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-}
-.tabs a:hover, .tabs a.aktif {
-  color: #fff;
-  background: var(--pink);
-  border-color: var(--pink);
-  text-decoration: none;
-}
-.content { max-width: 960px; margin: 36px auto; padding: 0 24px; }
-.box {
-  padding: 28px 32px 32px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  box-shadow: var(--shadow);
-}
-.box h2 { margin: 0 0 20px; font-size: 26px; color: var(--pink-deep); }
-.footer { padding: 32px; text-align: center; color: var(--muted); }
-@media (max-width: 720px) {
-  .tabs { justify-content: flex-start; }
-  .box { padding: 22px 18px 24px; }
-}
+  <style>
+    :root {
+      --bg: #fff4f8;
+      --card: #ffffff;
+      --ink: #3d1530;
+      --muted: #8f5c78;
+      --pink: #ec4899;
+      --pink-deep: #be185d;
+      --border: #f8c8dd;
+      --shadow: 0 10px 30px -12px rgba(190,24,93,.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Quicksand", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--pink-deep);
+      text-decoration: none;
+    }
+
+    .header {
+      padding: 45px 20px;
+      text-align: center;
+      color: white;
+      background: linear-gradient(
+        135deg,
+        #f472b6,
+        #ec4899 45%,
+        #be185d
+      );
+    }
+
+    .header h1 {
+      margin: 0;
+      font-family: "Pacifico", cursive;
+      font-size: clamp(34px, 6vw, 54px);
+      font-weight: 400;
+    }
+
+    .header p {
+      margin: 8px 0 0;
+      font-size: 15px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 16px;
+      overflow-x: auto;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .tabs a {
+      display: inline-block;
+      padding: 9px 19px;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: .25s;
+    }
+
+    .tabs a:hover,
+    .tabs a.aktif {
+      color: white;
+      background: var(--pink);
+      border-color: var(--pink);
+      text-decoration: none;
+      transform: translateY(-2px);
+    }
+
+    .content {
+      width: 100%;
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 24px;
+      min-height: 55vh;
+    }
+
+    .box {
+      padding: 30px 32px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      animation: muncul .5s ease;
+    }
+
+    .box h2 {
+      margin: 0 0 18px;
+      font-size: 26px;
+      color: var(--pink-deep);
+    }
+
+    .box p {
+      margin: 0 0 15px;
+    }
+
+    .task-content {
+      min-height: 250px;
+      padding: 22px;
+      background: #fff8fb;
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+    }
+
+    .task-content p {
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 28px 15px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    @keyframes muncul {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .tabs {
+        justify-content: flex-start;
+      }
+
+      .content {
+        margin: 25px auto;
+        padding: 0 15px;
+      }
+
+      .box {
+        padding: 22px 18px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <header class="header">
     <h1>Tugas 1</h1>
+    <p>Dokumentasi tugas dan hasil pembelajaran saya</p>
   </header>
 
   <nav class="tabs" aria-label="Menu utama">
@@ -94,18 +190,55 @@ a:hover { text-decoration: underline; }
     <a href="index.html#biodata">Biodata</a>
     <a href="index.html#gallery">Gallery</a>
     <a href="index.html#video">Video</a>
-    <a href="tugas1.html" class="aktif">Tugas 1</a>
+    <a href="tugas1.html" class="aktif" aria-current="page">Tugas 1</a>
     <a href="tugas2.html">Tugas 2</a>
   </nav>
 
   <main class="content">
     <section class="box">
-      <h2>Tugas 1</h2>
-      <!-- Isi coding Tugas 1 di sini -->
+      <h2>📚 Tugas 1</h2>
+
+      <p>
+        Selamat datang di halaman Tugas 1.
+        Halaman ini digunakan untuk menampilkan
+        hasil tugas dan dokumentasi pembelajaran.
+      </p>
+
+      <div class="task-content">
+        <p>
+          <strong>Tempat Isi Tugas 1</strong>
+        </p>
+
+        <p>
+          Silakan masukkan materi, gambar, dokumen,
+          atau hasil tugas kamu di bagian ini.
+        </p>
+      </div>
     </section>
   </main>
 
-  <footer class="footer">© 2026 Nama Kamu</footer>
+  <footer class="footer">
+    © 2026 Portofolio Saya | Dibuat dengan ❤️
+  </footer>
+
+  <script>
+    // Menandai menu sesuai halaman yang sedang dibuka
+    const currentPage = window.location.pathname
+      .split("/")
+      .pop() || "index.html";
+
+    document.querySelectorAll(".tabs a").forEach(link => {
+      const href = link.getAttribute("href");
+
+      if (
+        href &&
+        !href.includes("#") &&
+        href === currentPage
+      ) {
+        link.classList.add("aktif");
+      }
+    });
+  </script>
 
 </body>
 </html>

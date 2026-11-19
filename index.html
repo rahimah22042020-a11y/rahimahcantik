@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portofolio Saya</title>
+  <title>Tugas 1 – Portofolio Saya</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,10 +19,7 @@
   --border: #f8c8dd;
   --shadow: 0 10px 30px -12px rgba(190, 24, 93, .28);
 }
-
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-
 body {
   margin: 0;
   background: var(--bg);
@@ -32,127 +29,45 @@ body {
   font-weight: 500;
   line-height: 1.65;
 }
-
 a { color: var(--pink-deep); text-decoration: none; }
 a:hover { text-decoration: underline; }
-:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; }
 
-/* ===== Header ===== */
-.topbar {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 12px 28px;
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-}
-.brand { display: flex; color: var(--pink-deep); }
-.crumb { color: var(--muted); }
-.crumb strong { color: var(--ink); }
-.search {
-  margin-left: auto;
-  width: 240px;
-  max-width: 40%;
-  padding: 8px 16px;
-  font: inherit;
-  color: var(--ink);
-  background: var(--pink-soft);
-  border: 1px solid transparent;
-  border-radius: 999px;
-}
-.search::placeholder { color: var(--muted); }
-
-/* ===== Hero ===== */
-.hero {
-  position: relative;
-  overflow: hidden;
-  padding: 64px 28px 72px;
+.header {
+  padding: 40px 24px;
+  text-align: center;
   color: #fff;
-  background:
-    radial-gradient(circle at 12% 20%, rgba(255, 255, 255, .28) 0 90px, transparent 91px),
-    radial-gradient(circle at 88% 80%, rgba(255, 255, 255, .2) 0 140px, transparent 141px),
-    radial-gradient(circle at 70% 10%, rgba(255, 255, 255, .15) 0 60px, transparent 61px),
-    linear-gradient(135deg, #f472b6 0%, #ec4899 45%, #be185d 100%);
+  background: linear-gradient(135deg, #f472b6 0%, #ec4899 45%, #be185d 100%);
 }
-.hero-inner {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  max-width: 960px;
-  margin: 0 auto;
-}
-.avatar {
-  flex: none;
-  width: 190px;
-  height: 190px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 6px solid #fff;
-  background: #fbcfe8;
-  box-shadow: 0 16px 40px -10px rgba(61, 21, 48, .5);
-}
-.hello { margin: 0; font-weight: 600; opacity: .9; }
-.hero h1 {
+.header h1 {
   margin: 0;
   font-family: "Pacifico", cursive;
-  font-size: clamp(40px, 7vw, 68px);
+  font-size: clamp(34px, 6vw, 54px);
   font-weight: 400;
-  line-height: 1.2;
-  text-shadow: 0 4px 18px rgba(61, 21, 48, .3);
 }
-.username { margin: 0 0 12px; font-size: 18px; opacity: .9; }
-.bio { max-width: 46ch; margin: 0 0 18px; font-size: 17px; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chips span {
-  padding: 4px 14px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--pink-deep);
-  background: #fff;
-  border-radius: 999px;
-}
-
-/* ===== Menu pill ===== */
 .tabs {
-  position: sticky;
-  top: 0;
-  z-index: 10;
   display: flex;
   justify-content: center;
   gap: 8px;
   padding: 12px 20px;
   overflow-x: auto;
-  background: rgba(255, 244, 248, .9);
-  backdrop-filter: blur(10px);
+  background: #fff;
   border-bottom: 1px solid var(--border);
 }
 .tabs a {
   padding: 8px 22px;
   font-weight: 700;
-  color: var(--pink-deep);
   white-space: nowrap;
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 999px;
-  transition: background .2s, color .2s;
 }
-.tabs a:hover,
-.tabs a:target {
+.tabs a:hover, .tabs a.aktif {
   color: #fff;
   background: var(--pink);
   border-color: var(--pink);
   text-decoration: none;
 }
-
-/* ===== Konten ===== */
-.content {
-  display: grid;
-  gap: 28px;
-  max-width: 960px;
-  margin: 36px auto;
-  padding: 0 24px;
-}
+.content { max-width: 960px; margin: 36px auto; padding: 0 24px; }
 .box {
   padding: 28px 32px 32px;
   background: var(--card);
@@ -160,214 +75,34 @@ a:hover { text-decoration: underline; }
   border-radius: 24px;
   box-shadow: var(--shadow);
 }
-.box h2 {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 0 0 20px;
-  font-size: 26px;
-  line-height: 1.2;
-  color: var(--pink-deep);
-}
-.box h2::before {
-  content: "";
-  width: 10px;
-  height: 28px;
-  background: linear-gradient(var(--pink), #f9a8d4);
-  border-radius: 99px;
-}
-.box p { margin: 0; }
-
-/* Biodata */
-.bio-list { display: grid; gap: 10px; margin: 0; }
-.bio-list div {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 16px;
-  padding: 12px 18px;
-  background: var(--pink-soft);
-  border-radius: 14px;
-}
-.bio-list dt { font-weight: 700; color: var(--pink-deep); }
-.bio-list dd { margin: 0; }
-
-/* Gallery */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 16px;
-}
-figure {
-  margin: 0;
-  overflow: hidden;
-  background: linear-gradient(135deg, #fbcfe8, #f9a8d4);
-  border-radius: 18px;
-  min-height: 120px;
-}
-figure img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  transition: transform .4s;
-}
-figure:hover img { transform: scale(1.06); }
-figcaption {
-  padding: 10px 16px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--pink-deep);
-  background: #fff;
-}
-
-/* Video */
-.video-wrap {
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: #2b0e21;
-  border: 4px solid var(--pink-soft);
-  border-radius: 20px;
-}
-.video-wrap iframe,
-.video-wrap video { width: 100%; height: 100%; border: 0; }
-.hint { margin-top: 14px !important; font-size: 14px; color: var(--muted); }
-code {
-  padding: 2px 8px;
-  font-family: ui-monospace, Consolas, monospace;
-  font-size: 13px;
-  color: var(--pink-deep);
-  background: var(--pink-soft);
-  border-radius: 8px;
-}
-
-/* Tugas */
-.files {
-  margin: 0 0 16px;
-  padding: 0;
-  list-style: none;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-}
-.files li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 18px;
-  border-bottom: 1px solid var(--border);
-}
-.files li:last-child { border-bottom: 0; }
-.files li:hover { background: var(--pink-soft); }
-.files a { font-weight: 700; }
-.files em { margin-left: auto; font-style: normal; font-size: 14px; color: var(--muted); }
-
+.box h2 { margin: 0 0 20px; font-size: 26px; color: var(--pink-deep); }
 .footer { padding: 32px; text-align: center; color: var(--muted); }
-
-/* ===== Responsif ===== */
 @media (max-width: 720px) {
-  .hero { padding: 40px 20px 48px; }
-  .hero-inner { flex-direction: column; text-align: center; gap: 24px; }
-  .avatar { width: 150px; height: 150px; }
-  .bio { margin-left: auto; margin-right: auto; }
-  .chips { justify-content: center; }
   .tabs { justify-content: flex-start; }
-  .search { display: none; }
   .box { padding: 22px 18px 24px; }
-  .bio-list div { grid-template-columns: 1fr; gap: 2px; }
-  .files em { display: none; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  figure img { transition: none; }
 }
   </style>
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header class="topbar">
-    <a class="brand" href="#beranda" aria-label="Beranda">
-      <svg width="30" height="30" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-      </svg>
-    </a>
-    <span class="crumb"><a href="#beranda">namakamu</a> / <strong>portofolio</strong></span>
-    <input class="search" type="search" placeholder="Cari di portofolio..." aria-label="Cari">
+  <header class="header">
+    <h1>Tugas 1</h1>
   </header>
 
-  <!-- ===== HERO / PROFIL ===== -->
-  <section class="hero" id="beranda">
-    <div class="hero-inner">
-      <img class="avatar" src="foto profil" alt="Foto profil" onerror="this.style.visibility='hidden'">
-      <div class="hero-text">
-        <p class="hello">Halo, aku</p>
-        <h1>rahimah</h1>
-        <p class="username">rahimah</p>
-        <p class="bio">Pelajar yang suka membuat website. Semua tugas dan karyaku kukumpulkan di sini.</p>
-        <div class="chips">
-          <span>semester 5</span>
-          <span>sosial ekonomi perikanan</span>
-          <span>Banjarbaru</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== MENU ===== -->
   <nav class="tabs" aria-label="Menu utama">
-    <a href="#biodata">Biodata</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#video">Video</a>
-    <a href="#tugas1">Tugas 1</a>
-    <a href="#tugas2">Tugas 2</a>
+    <a href="index.html">← Beranda</a>
+    <a href="index.html#biodata">Biodata</a>
+    <a href="index.html#gallery">Gallery</a>
+    <a href="index.html#video">Video</a>
+    <a href="tugas1.html" class="aktif">Tugas 1</a>
+    <a href="tugas2.html">Tugas 2</a>
   </nav>
 
   <main class="content">
-
-    <section class="box" id="biodata">
-      <h2>Biodata</h2>
-      <dl class="bio-list">
-        <div><dt>nama</dt><dd>rahimah</dd></div>
-        <div><dt>Tempat, tanggal lahir</dt><dd>Tanah bumbu, 24 juni 2026</dd></div>
-        <div><dt>Jenis kelamin</dt><dd>Perempuan</dd></div>
-        <div><dt>Sekolah</dt><dd>sosial ekonomi perikanan</dd></div>
-        <div><dt>Hobi</dt><dd>menyanyi</dd></div>
-        <div><dt>Cita-cita</dt><dd>pengusaha</dd></div>
-      </dl>
-    </section>
-
-    <section class="box" id="gallery">
-      <h2>Gallery</h2>
-      <div class="grid">
-        <figure><img src="tampak depab" alt="Foto 1" onerror="this.remove()"><figcaption>tampak depan</figcaption></figure>
-        <figure><img src="tampak kanan" alt="Foto 2" onerror="this.remove()"><figcaption>tampak kiri</figcaption></figure>
-        <figure><img src="tampak kanan" alt="Foto 3" onerror="this.remove()"><figcaption>tampak kanan</figcaption></figure>
-        <figure><img src="images/foto4.jpg" alt="Foto 4" onerror="this.remove()"><figcaption>tugas 1</figcaption></figure>
-        <figure><img src="images/foto5.jpg" alt="Foto 5" onerror="this.remove()"><figcaption>tugas 2</figcaption></figure>
-        <figure><img src="images/foto6.jpg" alt="Foto 6" onerror="this.remove()"><figcaption>Lainnya</figcaption></figure>
-      </div>
-    </section>
-
-    <section class="box" id="video">
-      <h2>Video</h2>
-      <div class="video-wrap">
-        <!-- Ganti VIDEO_ID dengan ID video YouTube kamu -->
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Video saya" allowfullscreen></iframe>
-      </div>
-      <p class="hint">Pakai file sendiri? Ganti iframe dengan <code>&lt;video src="WhatsApp Video 2026-11-19 at 18.11.00.mp4" controls&gt;&lt;/video&gt;</code></p>
-    </section>
-
-    <section class="box" id="tugas1">
+    <section class="box">
       <h2>Tugas 1</h2>
       <!-- Isi coding Tugas 1 di sini -->
     </section>
-
-    <section class="box" id="tugas2">
-      <h2>Tugas 2</h2>
-      <!-- Isi coding Tugas 2 di sini -->
-    </section>
-
   </main>
 
   <footer class="footer">© 2026 Nama Kamu</footer>

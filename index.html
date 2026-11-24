@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tugas 1 | Website Rahimah</title>
+<title>Website Rahimah</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
@@ -13,25 +13,51 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-html {
     scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Nunito', sans-serif;
     background: #fff8fc;
-    color: #66566c;
+    color: #55475c;
+    overflow-x: hidden;
+}
+
+/* DEKORASI */
+body::before {
+    content: "✿";
+    position: fixed;
+    top: 100px;
+    left: 25px;
+    font-size: 90px;
+    color: #f8cce2;
+    opacity: .35;
+    z-index: -1;
+}
+
+body::after {
+    content: "✧";
+    position: fixed;
+    right: 35px;
+    bottom: 50px;
+    font-size: 100px;
+    color: #cbbcf5;
+    opacity: .4;
+    z-index: -1;
 }
 
 /* NAVBAR */
 .navbar {
+    width: 100%;
     padding: 20px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: white;
+    background: rgba(255,255,255,.85);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
     box-shadow: 0 3px 15px #eacfe455;
 }
 
@@ -41,135 +67,303 @@ body {
     color: #c47ba8;
 }
 
-.navbar a {
-    text-decoration: none;
-    color: #c47ba8;
-    font-weight: 800;
+.nav-menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
 }
 
-/* HEADER */
-.header {
-    text-align: center;
-    padding: 60px 20px;
+.nav-menu a {
+    text-decoration: none;
+    color: #66566c;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.nav-menu a:hover {
+    color: #d77eae;
+}
+
+/* HERO */
+.hero {
+    min-height: 570px;
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
     background: linear-gradient(135deg,#ffe5f0,#f2eaff,#fff5e8);
 }
 
-.header h1 {
-    font-size: 40px;
-    color: #795e83;
-    margin-bottom: 12px;
+.hero-text {
+    max-width: 580px;
 }
 
-.header p {
-    color: #987f9c;
+.small-title {
+    background: white;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: #c47ba8;
+    font-weight: 800;
+    margin-bottom: 20px;
 }
 
-/* CONTENT */
-.container {
-    max-width: 1100px;
-    margin: 50px auto;
-    padding: 0 20px;
+.hero h1 {
+    font-size: clamp(38px,6vw,65px);
+    line-height: 1.15;
+    color: #74577d;
+    margin-bottom: 20px;
 }
 
-.form-info {
+.hero h1 span {
+    color: #df87b6;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 27px;
+    background: #d98ab5;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 900;
+    box-shadow: 0 7px 15px #d98ab555;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    background: #bc6e9b;
+}
+
+.hero-image {
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 150px;
+    box-shadow: 0 15px 35px #c9a9d455;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% {transform: translateY(0);}
+    50% {transform: translateY(-15px);}
+}
+
+/* SECTION */
+section {
+    padding: 75px 8%;
+}
+
+.section-title {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 45px;
 }
 
-.form-info h2 {
+.section-title h2 {
     color: #795e83;
-    font-size: 28px;
+    font-size: 35px;
     margin-bottom: 10px;
 }
 
-.form-info p {
-    color: #9c899f;
+.section-title p {
+    color: #9c879f;
+}
+
+/* MENU CARD */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+    gap: 25px;
+}
+
+.menu-card {
+    background: white;
+    padding: 35px 20px;
+    border-radius: 25px;
+    text-align: center;
+    text-decoration: none;
+    color: #66566c;
+    box-shadow: 0 8px 25px #d9c3dd40;
+    transition: .3s;
+    border: 2px solid transparent;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+    border-color: #f3c6df;
+    box-shadow: 0 12px 30px #d9a9cb55;
+}
+
+.menu-icon {
+    width: 85px;
+    height: 85px;
+    margin: auto auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    border-radius: 25px;
+}
+
+.pink {background:#ffe1ed;}
+.purple {background:#eee3ff;}
+.yellow {background:#fff1ce;}
+.blue {background:#dff2ff;}
+.green {background:#e0f6e7;}
+
+.menu-card h3 {
+    font-size: 21px;
+    margin-bottom: 8px;
+    color: #805f87;
+}
+
+.menu-card p {
+    font-size: 14px;
+    color: #a493a7;
+}
+
+/* TUGAS 1 - GOOGLE FORM */
+.tugas1 {
+    background: linear-gradient(135deg,#fff0f7,#f5edff);
+    display: none;
+}
+
+.tugas1:target {
+    display: block;
+}
+
+.form-container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px #d9c3dd40;
+}
+
+.form-container h3 {
+    text-align: center;
+    color: #c47ba8;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.form-description {
+    text-align: center;
+    color: #9c879f;
+    margin-bottom: 25px;
     line-height: 1.8;
 }
 
-/* FORM CARD */
-.form-card {
-    background: white;
-    padding: 20px;
-    border-radius: 25px;
-    box-shadow: 0 10px 30px #e6c9dd66;
-}
-
-.form-frame {
+.google-form {
     width: 100%;
-    height: 850px;
+    height: 900px;
     border: none;
     border-radius: 15px;
     background: #fff8fc;
 }
 
-/* BUTTON */
-.open-form {
+.form-back {
     text-align: center;
     margin-top: 25px;
 }
 
-.open-form a {
+.form-back a {
     display: inline-block;
     background: #d98ab5;
     color: white;
+    padding: 12px 25px;
     text-decoration: none;
-    padding: 13px 25px;
     border-radius: 30px;
     font-weight: 900;
     transition: .3s;
 }
 
-.open-form a:hover {
+.form-back a:hover {
     background: #bc6e9b;
-    transform: translateY(-4px);
 }
 
-/* BACK BUTTON */
-.back {
+/* ABOUT */
+.about {
+    background: #fff0f7;
     text-align: center;
-    margin: 40px 0;
 }
 
-.back a {
-    text-decoration: none;
-    color: #c47ba8;
-    font-weight: 900;
+.about-box {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px;
+    background: white;
+    border-radius: 25px;
+    line-height: 1.9;
+    box-shadow: 0 8px 25px #eacfe455;
 }
 
 /* FOOTER */
 footer {
     background: #eac8df;
     text-align: center;
-    padding: 25px;
+    padding: 30px 15px;
     color: #74577d;
     font-weight: 800;
 }
 
+footer p {
+    margin: 5px;
+}
+
 /* RESPONSIVE */
-@media(max-width:650px) {
+@media(max-width:768px) {
     .navbar {
-        padding: 16px 5%;
+        flex-direction: column;
+        gap: 15px;
     }
 
-    .logo {
-        font-size: 19px;
-    }
-
-    .navbar a {
+    .nav-menu {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
         font-size: 13px;
     }
 
-    .header h1 {
-        font-size: 30px;
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 55px 7%;
     }
 
-    .form-card {
-        padding: 10px;
+    .hero-image {
+        width: 220px;
+        height: 220px;
+        font-size: 100px;
     }
 
-    .form-frame {
-        height: 900px;
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+
+    .form-container {
+        padding: 12px;
+    }
+
+    .google-form {
+        height: 950px;
     }
 }
 </style>
@@ -179,55 +373,177 @@ footer {
 
 <!-- NAVBAR -->
 <nav class="navbar">
-    <div class="logo">♡ Website Rahimah</div>
-    <a href="index.html">⌂ Kembali ke Home</a>
+    <div class="logo">website saya</div>
+
+    <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">Tentang</a></li>
+    </ul>
 </nav>
 
-<!-- HEADER -->
-<header class="header">
-    <h1>My Assignment 1 📚</h1>
-    <p>Welcome to My First Assignment ♡</p>
-</header>
+<!-- BERANDA -->
+<header class="hero" id="home">
 
-<!-- FORM CONTENT -->
-<main class="container">
+    <div class="hero-text">
+        <div class="small-title">
+            ✨ Welcome to My Little World ✨
+        </div>
 
-    <div class="form-info">
-        <h2>♡ Tugas 1 - Google Form ♡</h2>
+        <h1>
+            Selamat Datang<br>
+            di <span>Website Saya!</span>
+        </h1>
+
         <p>
-            Silakan isi formulir berikut sesuai dengan
-            petunjuk dan pertanyaan yang tersedia.
-            Terima kasih atas partisipasinya! 🌷
+            Halo! Terima kasih sudah berkunjung.
+            Website ini dibuat untuk memperkenalkan diri
+            dan menampilkan berbagai kegiatan serta tugas saya. 🌷
         </p>
+
+        <a href="#menu" class="btn">
+            Jelajahi Website ♡
+        </a>
     </div>
 
-    <div class="form-card">
+    <div class="hero-image">
+        🌸
+    </div>
 
-        <!-- GOOGLE FORM -->
+</header>
+
+<!-- MENU UTAMA -->
+<section id="menu">
+
+    <div class="section-title">
+        <h2>Mari Lihat Website Saya ♡</h2>
+        <p>Yuk, jelajahi berbagai menu yang tersedia!</p>
+    </div>
+
+    <div class="menu-grid">
+
+        <a href="biodata.html" class="menu-card">
+            <div class="menu-icon pink">👩🏻‍🎓</div>
+            <h3>Biodata</h3>
+            <p>Kenali saya lebih dekat.</p>
+        </a>
+
+        <a href="gallery.html" class="menu-card">
+            <div class="menu-icon purple">📸</div>
+            <h3>Gallery</h3>
+            <p>Kumpulan foto rumah.</p>
+        </a>
+
+        <a href="video.html" class="menu-card">
+            <div class="menu-icon yellow">🎬</div>
+            <h3>Video</h3>
+            <p>Video sekitar rumah.</p>
+        </a>
+
+        <!-- TUGAS 1 -->
+        <a href="#tugas1" class="menu-card">
+            <div class="menu-icon blue">📚</div>
+            <h3>Tugas 1</h3>
+            <p>Formulir Kepuasan Pengguna DANA.</p>
+        </a>
+
+        <a href="tugas2.html" class="menu-card">
+            <div class="menu-icon green">📝</div>
+            <h3>Tugas 2</h3>
+            <p>Kumpulan tugas kedua.</p>
+        </a>
+
+        <a href="tugas3.html" class="menu-card">
+            <div class="menu-icon green">📝</div>
+            <h3>Tugas 3</h3>
+            <p>Kumpulan tugas ketiga.</p>
+        </a>
+
+        <a href="tugas1.html" class="menu-card">
+            <div class="menu-icon blue">📚</div>
+            <h3>Tugas 4</h3>
+            <p>Kumpulan tugas Empat.</p>
+        </a>
+
+        <a href="tugas1.html" class="menu-card">
+            <div class="menu-icon blue">📚</div>
+            <h3>Tugas Akhir</h3>
+            <p>Kumpulan tugas Akhir.</p>
+        </a>
+
+        <a href="tugas1.html" class="menu-card">
+            <div class="menu-icon blue">📚</div>
+            <h3>Data</h3>
+            <p>Kumpulan data.</p>
+        </a>
+
+    </div>
+</section>
+
+<!-- TUGAS 1 GOOGLE FORM -->
+<section class="tugas1" id="tugas1">
+
+    <div class="section-title">
+        <h2>♡ Tugas 1 - Google Form ♡</h2>
+        <p>Formulir Kepuasan Pengguna Dompet Digital DANA</p>
+    </div>
+
+    <div class="form-container">
+
+        <h3>Formulir Kepuasan Pengguna DANA</h3>
+
+        <p class="form-description">
+            Silakan isi formulir berikut sesuai dengan pengalaman
+            kamu sebagai pengguna dompet digital DANA.
+            Terima kasih atas partisipasinya! ♡
+        </p>
+
         <iframe
-            class="form-frame"
-            src="GANTI_DENGAN_LINK_GOOGLE_FORM_EMBED"
-            title="Google Form Tugas 1">
+            class="google-form"
+            src="https://docs.google.com/forms/d/16E8ItNW9GYCIG_LmXcetD3ov4DbkrI95I_YjbpsTI7U/viewform?embedded=true"
+            title="Formulir Kepuasan Pengguna DANA"
+            loading="lazy">
+            Memuat formulir...
         </iframe>
 
-        <div class="open-form">
-            <a href="GANTI_DENGAN_LINK_GOOGLE_FORM_PUBLIK"
-               target="_blank">
-                Buka Google Form di Tab Baru ↗
-            </a>
+        <div class="form-back">
+            <a href="#menu">♡ Kembali ke Menu</a>
         </div>
 
     </div>
 
-    <div class="back">
-        <a href="index.html">♡ Kembali ke Beranda</a>
+</section>
+
+<!-- TENTANG WEBSITE -->
+<section class="about" id="about">
+
+    <div class="section-title">
+        <h2>A Little About This Website 🌷</h2>
+        <p>My Personal Website</p>
     </div>
 
-</main>
+    <div class="about-box">
+
+        <h3>♡ Selamat datang di situs web saya ♡</h3>
+
+        <p>
+            Website ini dibuat sebagai media untuk
+            memperkenalkan diri, serta menampilkan
+            berbagai hasil tugas dan dokumentasi pribadi.
+        </p>
+
+        <br>
+
+        <h2>Terima kasih telah mengunjungi website ini! 💗</h2>
+
+    </div>
+
+</section>
 
 <!-- FOOTER -->
 <footer>
     <p>♡ Website Rahimah ♡</p>
+    <p>Made with Love 🌸</p>
     <p>Keep Growing, Keep Shining! ✨</p>
 </footer>
 

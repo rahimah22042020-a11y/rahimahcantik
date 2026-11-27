@@ -4,11 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Gallery ♡</title>
+<title>Gallery</title>
+
+<!-- GSAP LIBRARY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -16,219 +18,169 @@
 }
 
 body {
-    font-family: 'Nunito', sans-serif;
-    background: linear-gradient(135deg, #fff5f9, #f4edff, #fdf2fa);
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fff0f5, #f3e8ff);
     color: #55445f;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* HEADER */
 header {
     text-align: center;
-    padding: 65px 20px 45px;
+    padding: 35px 20px;
     position: relative;
-}
-
-header::before {
-    content: "♡";
-    position: absolute;
-    top: 20px;
-    left: 12%;
-    font-size: 55px;
-    color: #e9c9e8;
-    opacity: 0.6;
-}
-
-header::after {
-    content: "✿";
-    position: absolute;
-    top: 35px;
-    right: 13%;
-    font-size: 45px;
-    color: #d9c5ed;
-    opacity: 0.7;
 }
 
 header h1 {
     color: #a45b91;
-    font-size: 39px;
-    font-weight: 900;
-    letter-spacing: 1px;
+    font-size: 30px;
     margin-bottom: 10px;
-    animation: fadeDown 0.8s ease;
 }
 
 header p {
-    color: #927b9a;
+    color: #806d88;
     font-size: 14px;
-    letter-spacing: 1px;
-    animation: fadeDown 1s ease;
+}
+
+/* HIASAN BACKGROUND */
+.decoration {
+    position: fixed;
+    color: #d9b8e8;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: -1;
+    font-size: 25px;
+}
+
+.deco1 {
+    top: 20%;
+    left: 5%;
+}
+
+.deco2 {
+    top: 45%;
+    right: 7%;
+}
+
+.deco3 {
+    bottom: 15%;
+    left: 12%;
 }
 
 /* TOMBOL KEMBALI */
 .back-button {
     display: inline-block;
-    margin-top: 25px;
-    padding: 11px 25px;
-    background: linear-gradient(135deg, #d9b8e8, #c69bd9);
+    margin-top: 18px;
+    padding: 10px 20px;
+    background: #d9b8e8;
     color: white;
     text-decoration: none;
-    border-radius: 30px;
+    border-radius: 20px;
     font-size: 13px;
-    font-weight: 800;
-    box-shadow: 0 5px 15px rgba(180, 130, 190, 0.2);
-    transition: 0.3s ease;
+    transition: 0.3s;
 }
 
 .back-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(180, 130, 190, 0.3);
-    background: linear-gradient(135deg, #c69bd9, #b681cb);
+    background: #b98bcf;
 }
 
 /* GALERI */
 .gallery-container {
-    max-width: 950px;
-    margin: 15px auto 60px;
-    padding: 0 25px;
+    max-width: 850px;
+    margin: 10px auto 50px;
+    padding: 0 20px;
 }
 
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
+    gap: 20px;
 }
 
-/* KARTU FOTO */
 .gallery-card {
-    background: rgba(255, 255, 255, 0.85);
-    padding: 13px;
-    border-radius: 22px;
-    box-shadow: 0 8px 25px rgba(140, 100, 150, 0.10);
+    background: white;
+    padding: 10px;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(120, 80, 130, 0.12);
     text-align: center;
-    transition: all 0.4s ease;
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    animation: fadeUp 0.8s ease both;
-}
-
-.gallery-card:nth-child(2) {
-    animation-delay: 0.15s;
-}
-
-.gallery-card:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.gallery-card:nth-child(4) {
-    animation-delay: 0.45s;
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
+    will-change: transform, opacity;
 }
 
 .gallery-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(150, 105, 165, 0.18);
+    box-shadow: 0 12px 25px rgba(120, 80, 130, 0.22);
 }
 
 /* UKURAN FOTO */
 .gallery-card img {
     width: 100%;
-    height: 220px;
+    height: 170px;
     object-fit: cover;
-    border-radius: 16px;
+    border-radius: 13px;
     display: block;
-    transition: transform 0.5s ease;
-}
-
-.gallery-card:hover img {
-    transform: scale(1.025);
+    will-change: transform;
 }
 
 .gallery-card h3 {
-    margin-top: 17px;
-    font-size: 17px;
+    margin-top: 12px;
+    font-size: 15px;
     color: #a45b91;
-    font-weight: 900;
 }
 
 .gallery-card p {
-    font-size: 13px;
-    color: #927f99;
-    margin-top: 6px;
-    line-height: 1.6;
-    padding-bottom: 8px;
+    font-size: 12px;
+    color: #887a91;
+    margin-top: 5px;
+    line-height: 1.5;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
-    padding: 25px 15px;
-    color: #a18ba8;
+    padding: 20px;
+    color: #947e9c;
     font-size: 12px;
-    letter-spacing: 0.5px;
-    border-top: 1px solid rgba(190, 155, 200, 0.15);
 }
 
-/* ANIMASI */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeDown {
-    from {
-        opacity: 0;
-        transform: translateY(-15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* ANIMASI HIASAN */
+.decoration {
+    will-change: transform;
 }
 
 /* TAMPILAN HP */
 @media (max-width: 600px) {
-    header {
-        padding: 55px 15px 35px;
-    }
-
-    header h1 {
-        font-size: 29px;
-    }
-
-    header::before {
-        left: 5%;
-        font-size: 35px;
-    }
-
-    header::after {
-        right: 5%;
-        font-size: 32px;
-    }
-
     .gallery-grid {
         grid-template-columns: 1fr;
-        max-width: 380px;
+        max-width: 350px;
         margin: auto;
-        gap: 22px;
     }
 
     .gallery-card img {
-        height: 210px;
+        height: 180px;
     }
 
-    .gallery-container {
-        padding: 0 18px;
+    header h1 {
+        font-size: 25px;
+    }
+}
+
+/* MENGHORMATI PENGATURAN REDUKSI ANIMASI */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        scroll-behavior: auto !important;
     }
 }
 </style>
 </head>
 
 <body>
+
+<!-- HIASAN ANIMASI -->
+<div class="decoration deco1">♡</div>
+<div class="decoration deco2">✿</div>
+<div class="decoration deco3">♡</div>
 
 <header>
     <h1>My Gallery ♡</h1>
@@ -270,6 +222,148 @@ footer {
 <footer>
     © 2026 My Personal Website ♡
 </footer>
+
+<!-- GSAP ANIMATION -->
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// CEK PENGATURAN ANIMASI
+const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+).matches;
+
+if (!reduceMotion) {
+
+    // ANIMASI HEADER
+    const intro = gsap.timeline();
+
+    intro.from("header h1", {
+        y: -40,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+    })
+    .from("header p", {
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out"
+    }, "-=0.5")
+    .from(".back-button", {
+        y: 15,
+        opacity: 0,
+        duration: 0.7,
+        ease: "back.out(1.7)"
+    }, "-=0.3");
+
+    // ANIMASI KARTU FOTO
+    gsap.from(".gallery-card", {
+        y: 60,
+        opacity: 0,
+        scale: 0.94,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out",
+        delay: 0.5
+    });
+
+    // ANIMASI HIASAN MELAYANG
+    gsap.to(".deco1", {
+        y: -25,
+        rotation: 15,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+    });
+
+    gsap.to(".deco2", {
+        y: 30,
+        rotation: -20,
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+    });
+
+    gsap.to(".deco3", {
+        y: -20,
+        rotation: 12,
+        duration: 3.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+    });
+
+    // ANIMASI HOVER FOTO
+    document.querySelectorAll(".gallery-card").forEach(card => {
+
+        const photo = card.querySelector("img");
+
+        card.addEventListener("mouseenter", () => {
+            gsap.to(card, {
+                y: -8,
+                scale: 1.025,
+                duration: 0.35,
+                ease: "power2.out"
+            });
+
+            gsap.to(photo, {
+                scale: 1.07,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+        });
+
+        card.addEventListener("mouseleave", () => {
+            gsap.to(card, {
+                y: 0,
+                scale: 1,
+                duration: 0.4,
+                ease: "power2.out"
+            });
+
+            gsap.to(photo, {
+                scale: 1,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+        });
+
+    });
+
+    // ANIMASI TOMBOL KEMBALI
+    const button = document.querySelector(".back-button");
+
+    button.addEventListener("mouseenter", () => {
+        gsap.to(button, {
+            scale: 1.08,
+            duration: 0.3,
+            ease: "back.out(2)"
+        });
+    });
+
+    button.addEventListener("mouseleave", () => {
+        gsap.to(button, {
+            scale: 1,
+            duration: 0.3,
+            ease: "power2.out"
+        });
+    });
+
+    // ANIMASI FOOTER SAAT MUNCUL
+    gsap.from("footer", {
+        opacity: 0,
+        y: 20,
+        duration: 1,
+        scrollTrigger: {
+            trigger: "footer",
+            start: "top 95%"
+        }
+    });
+
+}
+</script>
 
 </body>
 </html>

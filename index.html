@@ -1,172 +1,441 @@
-```html
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery</title>
+<title>Website Rahimah</title>
 
-<!-- GSAP JAVASCRIPT LIBRARY -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #fff0f5, #f3e8ff);
-    color: #55445f;
-    min-height: 100vh;
+    font-family: 'Nunito', sans-serif;
+    background: #fff8fc;
+    color: #55475c;
     overflow-x: hidden;
 }
 
-/* HEADER */
-header {
-    text-align: center;
-    padding: 35px 20px;
+/* SCROLL PROGRESS */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg,#df87b6,#bca5ee);
+    z-index: 9999;
 }
 
-header h1 {
-    color: #a45b91;
-    font-size: 30px;
+/* DEKORASI */
+body::before {
+    content: "✿";
+    position: fixed;
+    top: 100px;
+    left: 25px;
+    font-size: 90px;
+    color: #f8cce2;
+    opacity: .35;
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::after {
+    content: "✧";
+    position: fixed;
+    right: 35px;
+    bottom: 50px;
+    font-size: 100px;
+    color: #cbbcf5;
+    opacity: .4;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 15px #eacfe455;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 900;
+    color: #c47ba8;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #66566c;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.nav-menu a:hover {
+    color: #d77eae;
+}
+
+/* HERO */
+.hero {
+    min-height: 570px;
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    background: linear-gradient(135deg,#ffe5f0,#f2eaff,#fff5e8);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-text {
+    max-width: 580px;
+    position: relative;
+    z-index: 2;
+}
+
+.small-title {
+    background: white;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: #c47ba8;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(38px,6vw,65px);
+    line-height: 1.15;
+    color: #74577d;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #df87b6;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 27px;
+    background: #d98ab5;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 900;
+    box-shadow: 0 7px 15px #d98ab555;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    background: #bc6e9b;
+}
+
+.hero-image {
+    width: 340px;
+    height: 340px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 150px;
+    box-shadow: 0 15px 35px #c9a9d455;
+}
+
+/* SECTION */
+section {
+    padding: 75px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    color: #795e83;
+    font-size: 35px;
     margin-bottom: 10px;
 }
 
-header p {
-    color: #806d88;
-    font-size: 14px;
+.section-title p {
+    color: #9c879f;
 }
 
-/* HIASAN BACKGROUND */
-.decoration {
-    position: fixed;
-    font-size: 28px;
-    color: #d9b8e8;
-    opacity: 0.5;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.deco1 {
-    top: 20%;
-    left: 5%;
-}
-
-.deco2 {
-    top: 45%;
-    right: 7%;
-}
-
-.deco3 {
-    bottom: 15%;
-    left: 12%;
-}
-
-/* TOMBOL KEMBALI */
-.back-button {
-    display: inline-block;
-    margin-top: 18px;
-    padding: 10px 20px;
-    background: #d9b8e8;
-    color: white;
-    text-decoration: none;
-    border-radius: 20px;
-    font-size: 13px;
-    transition: 0.3s;
-}
-
-.back-button:hover {
-    background: #b98bcf;
-}
-
-/* GALERI */
-.gallery-container {
-    max-width: 850px;
-    margin: 10px auto 50px;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
-}
-
-.gallery-grid {
+/* MENU CARD */
+.menu-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+    gap: 25px;
 }
 
-.gallery-card {
+.menu-card {
     background: white;
-    padding: 10px;
-    border-radius: 18px;
-    box-shadow: 0 5px 15px rgba(120, 80, 130, 0.12);
+    padding: 35px 20px;
+    border-radius: 25px;
     text-align: center;
-    transition: 0.3s;
-    overflow: hidden;
-    will-change: transform;
-}
-
-.gallery-card:hover {
-    box-shadow: 0 12px 25px rgba(120, 80, 130, 0.2);
-}
-
-/* UKURAN FOTO */
-.gallery-card img {
-    width: 100%;
-    height: 170px;
-    object-fit: cover;
-    border-radius: 13px;
+    text-decoration: none;
+    color: #66566c;
+    box-shadow: 0 8px 25px #d9c3dd40;
+    transition: .3s;
+    border: 2px solid transparent;
     display: block;
-    will-change: transform;
 }
 
-.gallery-card h3 {
-    margin-top: 12px;
-    font-size: 15px;
-    color: #a45b91;
+.menu-card:hover {
+    transform: translateY(-10px);
+    border-color: #f3c6df;
+    box-shadow: 0 12px 30px #d9a9cb55;
 }
 
-.gallery-card p {
-    font-size: 12px;
-    color: #887a91;
-    margin-top: 5px;
-    line-height: 1.5;
+.menu-icon {
+    width: 85px;
+    height: 85px;
+    margin: auto auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    border-radius: 25px;
+}
+
+.pink {background:#ffe1ed;}
+.purple {background:#eee3ff;}
+.yellow {background:#fff1ce;}
+.blue {background:#dff2ff;}
+.green {background:#e0f6e7;}
+
+.menu-card h3 {
+    font-size: 21px;
+    margin-bottom: 8px;
+    color: #805f87;
+}
+
+.menu-card p {
+    font-size: 14px;
+    color: #a493a7;
+}
+
+/* TUGAS */
+.tugas1,
+.tugas2,
+.tugas3 {
+    background: linear-gradient(135deg,#fff0f7,#f5edff);
+    display: none;
+}
+
+.tugas1:target,
+.tugas2:target,
+.tugas3:target {
+    display: block;
+}
+
+.form-container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px #d9c3dd40;
+    overflow: hidden;
+}
+
+.form-container h3 {
+    text-align: center;
+    color: #c47ba8;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.form-description {
+    text-align: center;
+    color: #9c879f;
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.google-form,
+.google-sheet {
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+    background: #fff8fc;
+}
+
+.google-form {
+    height: 900px;
+}
+
+.google-sheet {
+    height: 750px;
+}
+
+.form-back {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.form-back a {
+    display: inline-block;
+    background: #d98ab5;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 900;
+    transition: .3s;
+}
+
+.form-back a:hover {
+    background: #bc6e9b;
+    transform: translateY(-3px);
+}
+
+/* ABOUT */
+.about {
+    background: #fff0f7;
+    text-align: center;
+}
+
+.about-box {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px;
+    background: white;
+    border-radius: 25px;
+    line-height: 1.9;
+    box-shadow: 0 8px 25px #eacfe455;
 }
 
 /* FOOTER */
 footer {
+    background: #eac8df;
     text-align: center;
-    padding: 20px;
-    color: #947e9c;
-    font-size: 12px;
-    position: relative;
-    z-index: 1;
+    padding: 30px 15px;
+    color: #74577d;
+    font-weight: 800;
 }
 
-/* TAMPILAN HP */
-@media (max-width: 600px) {
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        max-width: 350px;
-        margin: auto;
+footer p {
+    margin: 5px;
+}
+
+/* TOMBOL KE ATAS */
+.back-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: #d98ab5;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px #d98ab566;
+    z-index: 90;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+.back-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
     }
 
-    .gallery-card img {
-        height: 180px;
+    .nav-menu {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 13px;
     }
 
-    header h1 {
-        font-size: 25px;
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 55px 7%;
+    }
+
+    .hero-image {
+        width: 220px;
+        height: 220px;
+        font-size: 100px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+
+    .form-container {
+        padding: 12px;
+    }
+
+    .google-form {
+        height: 950px;
+    }
+
+    .google-sheet {
+        height: 650px;
     }
 }
 
-/* MENGHORMATI PENGATURAN REDUKSI ANIMASI */
+/* HORMATI PENGATURAN REDUCE MOTION */
 @media (prefers-reduced-motion: reduce) {
-    * {
+    *, *::before, *::after {
         scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
     }
 }
 </style>
@@ -174,203 +443,489 @@ footer {
 
 <body>
 
-<!-- HIASAN -->
-<div class="decoration deco1">♡</div>
-<div class="decoration deco2">✿</div>
-<div class="decoration deco3">♡</div>
+<div class="progress-bar" id="progressBar"></div>
 
-<header>
-    <h1>My Gallery ♡</h1>
-    <p>Kumpulan dokumentasi rumah</p>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">website saya</div>
 
-    <a href="index.html" class="back-button">← Kembali ke Beranda</a>
+    <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">Tentang</a></li>
+    </ul>
+</nav>
+
+<!-- BERANDA -->
+<header class="hero" id="home">
+
+    <div class="hero-text">
+        <div class="small-title">
+            ✨ Welcome to My Little World ✨
+        </div>
+
+        <h1>
+            Selamat Datang<br>
+            di <span>Website Saya!</span>
+        </h1>
+
+        <p>
+            Halo! Terima kasih sudah berkunjung.
+            Website ini dibuat untuk memperkenalkan diri
+            dan menampilkan berbagai kegiatan serta tugas saya. 🌷
+        </p>
+
+        <a href="#menu" class="btn">
+            Jelajahi Website ♡
+        </a>
+    </div>
+
+    <div class="hero-image">🌸</div>
+
 </header>
 
-<main class="gallery-container">
-    <div class="gallery-grid">
+<!-- MENU UTAMA -->
+<section id="menu">
 
-        <div class="gallery-card">
-            <img src="tampak depan" alt="Tampak Depan">
-            <h3>Tampak Depan</h3>
-            <p>Bagian depan rumah.</p>
-        </div>
+    <div class="section-title">
+        <h2>Mari Lihat Website Saya ♡</h2>
+        <p>Yuk, jelajahi berbagai menu yang tersedia!</p>
+    </div>
 
-        <div class="gallery-card">
-            <img src="tampak kanan" alt="Tampak Kanan">
-            <h3>Tampak Kanan</h3>
-            <p>Bagian kanan rumah.</p>
-        </div>
+    <div class="menu-grid">
 
-        <div class="gallery-card">
-            <img src="tampak kiri" alt="Tampak Kiri">
-            <h3>Tampak Kiri</h3>
-            <p>Bagian kiri rumah.</p>
-        </div>
+        <a href="biodata.html" class="menu-card">
+            <div class="menu-icon pink">👩🏻‍🎓</div>
+            <h3>Biodata</h3>
+            <p>Kenali saya lebih dekat.</p>
+        </a>
 
-        <div class="gallery-card">
-            <img src="tampak belakang" alt="Tampak Belakang">
-            <h3>Tampak Belakang</h3>
-            <p>Bagian belakang rumah.</p>
+        <a href="gallery.html" class="menu-card">
+            <div class="menu-icon purple">📸</div>
+            <h3>Gallery</h3>
+            <p>Kumpulan foto rumah.</p>
+        </a>
+
+        <a href="video.html" class="menu-card">
+            <div class="menu-icon yellow">🎬</div>
+            <h3>Video</h3>
+            <p>Video sekitar rumah.</p>
+        </a>
+
+        <a href="#tugas1" class="menu-card">
+            <div class="menu-icon blue">📚</div>
+            <h3>Tugas 1</h3>
+            <p>Formulir Kepuasan Pengguna DANA.</p>
+        </a>
+
+        <a href="#tugas2" class="menu-card">
+            <div class="menu-icon green">📝</div>
+            <h3>Tugas 2</h3>
+            <p>Kumpulan tugas kedua.</p>
+        </a>
+
+        <a href="#tugas3" class="menu-card">
+            <div class="menu-icon green">📋</div>
+            <h3>Tugas 3</h3>
+            <p>Google Form, Google Sheets, dan Looker Studio.</p>
+        </a>
+
+        <a href="tugas1.html" class="menu-card">
+            <div class="menu-icon blue">📚</div>
+            <h3>Tugas 4</h3>
+            <p>Kumpulan tugas Empat.</p>
+        </a>
+
+        <a href="tugas1.html" class="menu-card">
+            <div class="menu-icon blue">📚</div>
+            <h3>Tugas Akhir</h3>
+            <p>Kumpulan tugas Akhir.</p>
+        </a>
+
+        <a href="tugas1.html" class="menu-card">
+            <div class="menu-icon blue">📚</div>
+            <h3>Data</h3>
+            <p>Kumpulan data.</p>
+        </a>
+
+    </div>
+</section>
+
+<!-- TUGAS 1 -->
+<section class="tugas1" id="tugas1">
+
+    <div class="section-title">
+        <h2>♡ Tugas 1 - Google Form ♡</h2>
+        <p>Formulir Kepuasan Pengguna Dompet Digital DANA</p>
+    </div>
+
+    <div class="form-container">
+
+        <h3>Formulir Kepuasan Pengguna DANA</h3>
+
+        <p class="form-description">
+            Silakan isi formulir berikut sesuai dengan pengalaman
+            kamu sebagai pengguna dompet digital DANA.
+            Terima kasih atas partisipasinya! ♡
+        </p>
+
+        <iframe
+            class="google-form"
+            src="https://docs.google.com/forms/d/16E8ItNW9GYCIG_LmXcetD3ov4DbkrI95I_YjbpsTI7U/viewform?embedded=true"
+            title="Formulir Kepuasan Pengguna DANA"
+            loading="lazy">
+        </iframe>
+
+        <div class="form-back">
+            <a href="#menu">♡ Kembali ke Menu</a>
         </div>
 
     </div>
-</main>
+</section>
 
+<!-- TUGAS 2 -->
+<section class="tugas2" id="tugas2">
+
+    <div class="section-title">
+        <h2>♡ Tugas 2 - Google Sheets ♡</h2>
+        <p>Tampilan data dari Google Sheets</p>
+    </div>
+
+    <div class="form-container">
+
+        <h3>Data Tugas 2</h3>
+
+        <p class="form-description">
+            Berikut adalah tampilan data yang terhubung dari Google Sheets. ♡
+        </p>
+
+        <iframe
+            class="google-sheet"
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRvmsYKKDppFFciIHKThMoVyfLZfz5pyyDY9-zsB4F1KWhUEMYoMdCst-cPyn3iTWxI7wDRdKt-8_tO/pubhtml?widget=true&amp;headers=false"
+            title="Data Tugas 2"
+            loading="lazy">
+        </iframe>
+
+        <div class="form-back">
+            <a href="#menu">♡ Kembali ke Menu</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- TUGAS 3 -->
+<section class="tugas3" id="tugas3">
+
+    <div class="section-title">
+        <h2>♡ Tugas 3 ♡</h2>
+        <p>Google Form, Google Sheets, dan Looker Studio</p>
+    </div>
+
+    <!-- GOOGLE FORM -->
+    <div class="form-container">
+
+        <h3>📝 Google Form Tugas 3</h3>
+
+        <p class="form-description">
+            Silakan isi formulir berikut sesuai petunjuk
+            yang tersedia. Terima kasih sudah berpartisipasi! ♡
+        </p>
+
+        <iframe
+            class="google-form"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSft2eNIP2hIOFHgjFL7GbKJxFkFMlbMm9tcn_8DiSmuOucWnw/viewform?embedded=true"
+            title="Google Form Tugas 3"
+            loading="lazy">
+        </iframe>
+
+    </div>
+
+    <br><br>
+
+    <!-- GOOGLE SHEETS -->
+    <div class="form-container">
+
+        <h3>📊 Google Sheets Tugas 3</h3>
+
+        <p class="form-description">
+            Berikut adalah tampilan data dari Google Sheets
+            untuk Tugas 3. ♡
+        </p>
+
+        <iframe
+            class="google-sheet"
+            src="https://docs.google.com/spreadsheets/d/1DYOBSILfvtuO7oR-8GW0yVuPo-1wmzdhnV_KfRg9FXo/preview"
+            title="Google Sheets Tugas 3"
+            loading="lazy">
+        </iframe>
+
+        <div class="form-back">
+            <a href="https://docs.google.com/spreadsheets/d/1DYOBSILfvtuO7oR-8GW0yVuPo-1wmzdhnV_KfRg9FXo/edit?usp=sharing"
+               target="_blank" rel="noopener">
+                Buka Google Sheets
+            </a>
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <!-- LOOKER STUDIO -->
+    <div class="form-container">
+
+        <h3>📈 Dashboard Tugas 3 - Looker Studio</h3>
+
+        <p class="form-description">
+            Berikut adalah tampilan dashboard laporan
+            dari Looker Studio. ♡
+        </p>
+
+        <iframe
+            width="100%"
+            height="750"
+            src="https://datastudio.google.com/embed/reporting/de73dff2-12e5-4bd4-8adb-3cb1e81a2d0a/page/vPHEG"
+            frameborder="0"
+            style="border:0"
+            allowfullscreen
+            sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+        </iframe>
+
+        <div class="form-back">
+            <a href="https://datastudio.google.com/reporting/de73dff2-12e5-4bd4-8adb-3cb1e81a2d0a"
+               target="_blank" rel="noopener">
+                Buka Dashboard Looker Studio
+            </a>
+        </div>
+
+    </div>
+
+    <div class="form-back">
+        <a href="#menu">♡ Kembali ke Menu</a>
+    </div>
+
+</section>
+
+<!-- TENTANG WEBSITE -->
+<section class="about" id="about">
+
+    <div class="section-title">
+        <h2>A Little About This Website 🌷</h2>
+        <p>My Personal Website</p>
+    </div>
+
+    <div class="about-box">
+
+        <h3>♡ Selamat datang di situs web saya ♡</h3>
+
+        <p>
+            Website ini dibuat sebagai media untuk
+            memperkenalkan diri, serta menampilkan
+            berbagai hasil tugas dan dokumentasi pribadi.
+        </p>
+
+        <br>
+
+        <h2>Terima kasih telah mengunjungi website ini! 💗</h2>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-    © 2026 My Personal Website ♡
+    <p>♡ Website Rahimah ♡</p>
+    <p>Made with Love 🌸</p>
+    <p>Keep Growing, Keep Shining! ✨</p>
 </footer>
 
-<!-- JAVASCRIPT GSAP -->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
+<!-- TOMBOL KEMBALI KE ATAS -->
+<button class="back-top" id="backTop" aria-label="Kembali ke atas">
+    ↑
+</button>
 
-    // CEK GSAP DAN PENGATURAN ANIMASI
+<!-- JAVASCRIPT DAN GSAP -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
     const reduceMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    if (typeof gsap === "undefined" || reduceMotion) {
-        return;
+    /* TOMBOL KEMBALI KE ATAS */
+    const backTop = document.getElementById("backTop");
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 350) {
+            backTop.classList.add("show");
+        } else {
+            backTop.classList.remove("show");
+        }
+
+        /* SCROLL PROGRESS */
+        const scrollable =
+            document.documentElement.scrollHeight - window.innerHeight;
+
+        const progress =
+            scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+
+        document.getElementById("progressBar").style.width =
+            progress + "%";
+    });
+
+    backTop.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+    /* ANIMASI GSAP */
+    if (typeof gsap !== "undefined" && !reduceMotion) {
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        /* ANIMASI HERO */
+        const heroTimeline = gsap.timeline();
+
+        heroTimeline
+            .from(".small-title", {
+                y: -25,
+                opacity: 0,
+                duration: 0.7
+            })
+            .from(".hero h1", {
+                y: 35,
+                opacity: 0,
+                duration: 0.8
+            }, "-=0.35")
+            .from(".hero p", {
+                y: 25,
+                opacity: 0,
+                duration: 0.7
+            }, "-=0.4")
+            .from(".hero .btn", {
+                y: 20,
+                opacity: 0,
+                duration: 0.6
+            }, "-=0.35")
+            .from(".hero-image", {
+                scale: 0.65,
+                rotation: -15,
+                opacity: 0,
+                duration: 1,
+                ease: "back.out(1.7)"
+            }, "-=0.8");
+
+        /* ANIMASI GAMBAR HERO */
+        gsap.to(".hero-image", {
+            y: -15,
+            duration: 2,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+
+        /* ANIMASI JUDUL SECTION */
+        gsap.utils.toArray(".section-title").forEach(function (title) {
+            gsap.from(title, {
+                y: 35,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: title,
+                    start: "top 88%",
+                    toggleActions: "play none none none"
+                }
+            });
+        });
+
+        /* ANIMASI MENU CARD */
+        gsap.from(".menu-card", {
+            y: 45,
+            opacity: 0,
+            scale: 0.95,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".menu-grid",
+                start: "top 85%",
+                toggleActions: "play none none none"
+            }
+        });
+
+        /* ANIMASI ABOUT */
+        gsap.from(".about-box", {
+            y: 45,
+            opacity: 0,
+            duration: 0.9,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".about-box",
+                start: "top 85%",
+                toggleActions: "play none none none"
+            }
+        });
+
+        /* ANIMASI FOOTER */
+        gsap.from("footer p", {
+            y: 20,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.15,
+            scrollTrigger: {
+                trigger: "footer",
+                start: "top 95%",
+                toggleActions: "play none none none"
+            }
+        });
+
+        /* ANIMASI KARTU SAAT DIARAHKAN */
+        document.querySelectorAll(".menu-card").forEach(function (card) {
+            card.addEventListener("mouseenter", function () {
+                gsap.to(card, {
+                    y: -8,
+                    scale: 1.025,
+                    duration: 0.25,
+                    ease: "power2.out"
+                });
+            });
+
+            card.addEventListener("mouseleave", function () {
+                gsap.to(card, {
+                    y: 0,
+                    scale: 1,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+        });
+
+        /* ANIMASI FORM */
+        gsap.utils.toArray(".form-container").forEach(function (form) {
+            gsap.from(form, {
+                y: 25,
+                opacity: 0,
+                duration: 0.7,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: form,
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                }
+            });
+        });
     }
 
-    // 1. ANIMASI HEADER
-    const intro = gsap.timeline();
-
-    intro.from("header h1", {
-        y: -40,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out"
-    })
-
-    .from("header p", {
-        y: 20,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out"
-    }, "-=0.5")
-
-    .from(".back-button", {
-        y: 20,
-        opacity: 0,
-        duration: 0.7,
-        ease: "back.out(1.7)"
-    }, "-=0.3");
-
-
-    // 2. ANIMASI FOTO MUNCUL BERGANTIAN
-    gsap.from(".gallery-card", {
-        y: 60,
-        opacity: 0,
-        scale: 0.9,
-        duration: 1,
-        stagger: 0.2,
-        delay: 0.5,
-        ease: "power3.out"
-    });
-
-
-    // 3. ANIMASI HIASAN MELAYANG
-    gsap.to(".deco1", {
-        y: -25,
-        rotation: 15,
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-    });
-
-    gsap.to(".deco2", {
-        y: 30,
-        rotation: -20,
-        duration: 4,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-    });
-
-    gsap.to(".deco3", {
-        y: -20,
-        rotation: 12,
-        duration: 3.5,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-    });
-
-
-    // 4. ANIMASI HOVER FOTO
-    document.querySelectorAll(".gallery-card").forEach(card => {
-
-        const photo = card.querySelector("img");
-
-        card.addEventListener("mouseenter", () => {
-
-            gsap.to(card, {
-                y: -8,
-                scale: 1.025,
-                duration: 0.35,
-                ease: "power2.out"
-            });
-
-            gsap.to(photo, {
-                scale: 1.08,
-                duration: 0.5,
-                ease: "power2.out"
-            });
-
+    /* TUTUP ANIMASI DAN REFRESH SAAT PINDAH MENU TUGAS */
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener("click", function () {
+            setTimeout(function () {
+                if (typeof ScrollTrigger !== "undefined") {
+                    ScrollTrigger.refresh();
+                }
+            }, 300);
         });
-
-        card.addEventListener("mouseleave", () => {
-
-            gsap.to(card, {
-                y: 0,
-                scale: 1,
-                duration: 0.4,
-                ease: "power2.out"
-            });
-
-            gsap.to(photo, {
-                scale: 1,
-                duration: 0.5,
-                ease: "power2.out"
-            });
-
-        });
-
-    });
-
-
-    // 5. ANIMASI TOMBOL KEMBALI
-    const button = document.querySelector(".back-button");
-
-    button.addEventListener("mouseenter", () => {
-
-        gsap.to(button, {
-            scale: 1.08,
-            duration: 0.3,
-            ease: "back.out(2)"
-        });
-
-    });
-
-    button.addEventListener("mouseleave", () => {
-
-        gsap.to(button, {
-            scale: 1,
-            duration: 0.3,
-            ease: "power2.out"
-        });
-
-    });
-
-
-    // 6. ANIMASI FOOTER
-    gsap.from("footer", {
-        opacity: 0,
-        y: 20,
-        duration: 1,
-        scrollTrigger: undefined
     });
 
 });
@@ -378,4 +933,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
-```

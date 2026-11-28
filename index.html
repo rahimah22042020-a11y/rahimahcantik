@@ -1,19 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website Rahimah</title>
+<title>Panda Little World</title>
 
-<!-- GOOGLE FONT -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -25,45 +17,9 @@
 
 body {
     font-family: 'Nunito', sans-serif;
-    background: #fff8fc;
-    color: #55475c;
+    background: #f7f8ef;
+    color: #303a32;
     overflow-x: hidden;
-}
-
-/* SCROLL PROGRESS */
-.progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 4px;
-    background: linear-gradient(90deg,#df87b6,#bca5ee);
-    z-index: 9999;
-}
-
-/* DEKORASI */
-body::before {
-    content: "✿";
-    position: fixed;
-    top: 100px;
-    left: 25px;
-    font-size: 90px;
-    color: #f8cce2;
-    opacity: .35;
-    z-index: -1;
-    pointer-events: none;
-}
-
-body::after {
-    content: "✧";
-    position: fixed;
-    right: 35px;
-    bottom: 50px;
-    font-size: 100px;
-    color: #cbbcf5;
-    opacity: .4;
-    z-index: -1;
-    pointer-events: none;
 }
 
 /* NAVBAR */
@@ -73,18 +29,17 @@ body::after {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255,255,255,.88);
-    backdrop-filter: blur(12px);
+    background: white;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 3px 15px #eacfe455;
+    box-shadow: 0 3px 15px #526b5515;
 }
 
 .logo {
-    font-size: 23px;
+    font-size: 24px;
     font-weight: 900;
-    color: #c47ba8;
+    color: #526b55;
 }
 
 .nav-menu {
@@ -95,32 +50,28 @@ body::after {
 
 .nav-menu a {
     text-decoration: none;
-    color: #66566c;
+    color: #526b55;
     font-weight: 800;
     transition: .3s;
 }
 
 .nav-menu a:hover {
-    color: #d77eae;
+    color: #9aaf91;
 }
 
 /* HERO */
 .hero {
-    min-height: 570px;
+    min-height: 550px;
     padding: 80px 8%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 35px;
-    background: linear-gradient(135deg,#ffe5f0,#f2eaff,#fff5e8);
-    position: relative;
-    overflow: hidden;
+    background: linear-gradient(135deg,#e9f0e2,#f7f8ef,#edf1e8);
 }
 
 .hero-text {
     max-width: 580px;
-    position: relative;
-    z-index: 2;
 }
 
 .small-title {
@@ -128,7 +79,7 @@ body::after {
     display: inline-block;
     padding: 10px 20px;
     border-radius: 30px;
-    color: #c47ba8;
+    color: #526b55;
     font-weight: 800;
     margin-bottom: 20px;
 }
@@ -136,48 +87,54 @@ body::after {
 .hero h1 {
     font-size: clamp(38px,6vw,65px);
     line-height: 1.15;
-    color: #74577d;
+    color: #405743;
     margin-bottom: 20px;
 }
 
 .hero h1 span {
-    color: #df87b6;
+    color: #8da58a;
 }
 
 .hero p {
     font-size: 17px;
     line-height: 1.8;
     margin-bottom: 28px;
+    color: #68756a;
 }
 
 .btn {
     display: inline-block;
     padding: 14px 27px;
-    background: #d98ab5;
+    background: #526b55;
     color: white;
     border-radius: 30px;
     text-decoration: none;
     font-weight: 900;
-    box-shadow: 0 7px 15px #d98ab555;
+    box-shadow: 0 7px 15px #526b5533;
     transition: .3s;
 }
 
 .btn:hover {
     transform: translateY(-5px);
-    background: #bc6e9b;
+    background: #405743;
 }
 
 .hero-image {
-    width: 340px;
-    height: 340px;
-    flex-shrink: 0;
+    width: 320px;
+    height: 320px;
     border-radius: 50%;
-    background: rgba(255,255,255,.85);
+    background: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 150px;
-    box-shadow: 0 15px 35px #c9a9d455;
+    font-size: 160px;
+    box-shadow: 0 15px 35px #526b5522;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% {transform: translateY(0);}
+    50% {transform: translateY(-15px);}
 }
 
 /* SECTION */
@@ -191,13 +148,13 @@ section {
 }
 
 .section-title h2 {
-    color: #795e83;
+    color: #405743;
     font-size: 35px;
     margin-bottom: 10px;
 }
 
 .section-title p {
-    color: #9c879f;
+    color: #879187;
 }
 
 /* MENU CARD */
@@ -213,17 +170,16 @@ section {
     border-radius: 25px;
     text-align: center;
     text-decoration: none;
-    color: #66566c;
-    box-shadow: 0 8px 25px #d9c3dd40;
+    color: #526b55;
+    box-shadow: 0 8px 25px #526b5515;
     transition: .3s;
     border: 2px solid transparent;
-    display: block;
 }
 
 .menu-card:hover {
     transform: translateY(-10px);
-    border-color: #f3c6df;
-    box-shadow: 0 12px 30px #d9a9cb55;
+    border-color: #c6d6c0;
+    box-shadow: 0 12px 30px #526b5525;
 }
 
 .menu-icon {
@@ -235,36 +191,37 @@ section {
     justify-content: center;
     font-size: 42px;
     border-radius: 25px;
+    background: #edf3e8;
 }
-
-.pink {background:#ffe1ed;}
-.purple {background:#eee3ff;}
-.yellow {background:#fff1ce;}
-.blue {background:#dff2ff;}
-.green {background:#e0f6e7;}
 
 .menu-card h3 {
     font-size: 21px;
     margin-bottom: 8px;
-    color: #805f87;
+    color: #405743;
 }
 
 .menu-card p {
     font-size: 14px;
-    color: #a493a7;
+    color: #929b90;
 }
 
 /* TUGAS */
 .tugas1,
 .tugas2,
-.tugas3 {
-    background: linear-gradient(135deg,#fff0f7,#f5edff);
+.tugas3,
+.tugas4,
+.tugas-akhir,
+.data {
+    background: linear-gradient(135deg,#edf3e8,#f7f8ef);
     display: none;
 }
 
 .tugas1:target,
 .tugas2:target,
-.tugas3:target {
+.tugas3:target,
+.tugas4:target,
+.tugas-akhir:target,
+.data:target {
     display: block;
 }
 
@@ -272,40 +229,26 @@ section {
     max-width: 1000px;
     margin: auto;
     background: white;
-    padding: 25px;
+    padding: 35px;
     border-radius: 25px;
-    box-shadow: 0 8px 25px #d9c3dd40;
-    overflow: hidden;
+    box-shadow: 0 8px 25px #526b5515;
+    text-align: center;
 }
 
 .form-container h3 {
-    text-align: center;
-    color: #c47ba8;
+    color: #526b55;
     font-size: 25px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-.form-description {
-    text-align: center;
-    color: #9c879f;
-    margin-bottom: 25px;
+.form-container p {
+    color: #879187;
     line-height: 1.8;
 }
 
-.google-form,
-.google-sheet {
-    width: 100%;
-    border: none;
-    border-radius: 15px;
-    background: #fff8fc;
-}
-
-.google-form {
-    height: 900px;
-}
-
-.google-sheet {
-    height: 750px;
+.panda-empty {
+    font-size: 75px;
+    margin-bottom: 15px;
 }
 
 .form-back {
@@ -315,7 +258,7 @@ section {
 
 .form-back a {
     display: inline-block;
-    background: #d98ab5;
+    background: #526b55;
     color: white;
     padding: 12px 25px;
     text-decoration: none;
@@ -325,13 +268,12 @@ section {
 }
 
 .form-back a:hover {
-    background: #bc6e9b;
-    transform: translateY(-3px);
+    background: #405743;
 }
 
 /* ABOUT */
 .about {
-    background: #fff0f7;
+    background: #e9f0e2;
     text-align: center;
 }
 
@@ -342,45 +284,20 @@ section {
     background: white;
     border-radius: 25px;
     line-height: 1.9;
-    box-shadow: 0 8px 25px #eacfe455;
+    box-shadow: 0 8px 25px #526b5515;
 }
 
 /* FOOTER */
 footer {
-    background: #eac8df;
+    background: #35483a;
     text-align: center;
     padding: 30px 15px;
-    color: #74577d;
+    color: white;
     font-weight: 800;
 }
 
 footer p {
     margin: 5px;
-}
-
-/* TOMBOL KE ATAS */
-.back-top {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 48px;
-    height: 48px;
-    border: none;
-    border-radius: 50%;
-    background: #d98ab5;
-    color: white;
-    font-size: 22px;
-    cursor: pointer;
-    box-shadow: 0 5px 15px #d98ab566;
-    z-index: 90;
-    opacity: 0;
-    visibility: hidden;
-    transition: .3s;
-}
-
-.back-top.show {
-    opacity: 1;
-    visibility: visible;
 }
 
 /* RESPONSIVE */
@@ -406,7 +323,7 @@ footer p {
     .hero-image {
         width: 220px;
         height: 220px;
-        font-size: 100px;
+        font-size: 110px;
     }
 
     .hero h1 {
@@ -416,38 +333,15 @@ footer p {
     section {
         padding: 55px 6%;
     }
-
-    .form-container {
-        padding: 12px;
-    }
-
-    .google-form {
-        height: 950px;
-    }
-
-    .google-sheet {
-        height: 650px;
-    }
-}
-
-/* HORMATI PENGATURAN REDUCE MOTION */
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="progress-bar" id="progressBar"></div>
-
 <!-- NAVBAR -->
 <nav class="navbar">
-    <div class="logo">website saya</div>
+    <div class="logo">🐼 Panda Little World</div>
 
     <ul class="nav-menu">
         <li><a href="#home">Home</a></li>
@@ -458,10 +352,10 @@ footer p {
 
 <!-- BERANDA -->
 <header class="hero" id="home">
-
     <div class="hero-text">
+
         <div class="small-title">
-            ✨ Welcome to My Little World ✨
+            🐼 Welcome to My Panda World
         </div>
 
         <h1>
@@ -472,7 +366,8 @@ footer p {
         <p>
             Halo! Terima kasih sudah berkunjung.
             Website ini dibuat untuk memperkenalkan diri
-            dan menampilkan berbagai kegiatan serta tugas saya. 🌷
+            dan menampilkan berbagai kegiatan serta tugas saya.
+            Semoga kamu suka dengan dunia panda ini! 🎋
         </p>
 
         <a href="#menu" class="btn">
@@ -480,72 +375,70 @@ footer p {
         </a>
     </div>
 
-    <div class="hero-image">🌸</div>
-
+    <div class="hero-image">🐼</div>
 </header>
 
 <!-- MENU UTAMA -->
 <section id="menu">
-
     <div class="section-title">
-        <h2>Mari Lihat Website Saya ♡</h2>
-        <p>Yuk, jelajahi berbagai menu yang tersedia!</p>
+        <h2>Yuk, Jelajahi Website Saya! 🐼</h2>
+        <p>Pilih menu yang ingin kamu kunjungi!</p>
     </div>
 
     <div class="menu-grid">
 
         <a href="biodata.html" class="menu-card">
-            <div class="menu-icon pink">👩🏻‍🎓</div>
+            <div class="menu-icon">👩🏻‍🎓</div>
             <h3>Biodata</h3>
             <p>Kenali saya lebih dekat.</p>
         </a>
 
         <a href="gallery.html" class="menu-card">
-            <div class="menu-icon purple">📸</div>
+            <div class="menu-icon">📸</div>
             <h3>Gallery</h3>
-            <p>Kumpulan foto rumah.</p>
+            <p>Kumpulan foto dan kenangan.</p>
         </a>
 
         <a href="video.html" class="menu-card">
-            <div class="menu-icon yellow">🎬</div>
+            <div class="menu-icon">🎬</div>
             <h3>Video</h3>
-            <p>Video sekitar rumah.</p>
+            <p>Kumpulan video pilihan.</p>
         </a>
 
         <a href="#tugas1" class="menu-card">
-            <div class="menu-icon blue">📚</div>
+            <div class="menu-icon">📚</div>
             <h3>Tugas 1</h3>
-            <p>Formulir Kepuasan Pengguna DANA.</p>
+            <p>Tempat tugas pertama.</p>
         </a>
 
         <a href="#tugas2" class="menu-card">
-            <div class="menu-icon green">📝</div>
+            <div class="menu-icon">📝</div>
             <h3>Tugas 2</h3>
-            <p>Kumpulan tugas kedua.</p>
+            <p>Tempat tugas kedua.</p>
         </a>
 
         <a href="#tugas3" class="menu-card">
-            <div class="menu-icon green">📋</div>
+            <div class="menu-icon">📋</div>
             <h3>Tugas 3</h3>
-            <p>Google Form, Google Sheets, dan Looker Studio.</p>
+            <p>Tempat tugas ketiga.</p>
         </a>
 
-        <a href="tugas1.html" class="menu-card">
-            <div class="menu-icon blue">📚</div>
+        <a href="#tugas4" class="menu-card">
+            <div class="menu-icon">📖</div>
             <h3>Tugas 4</h3>
-            <p>Kumpulan tugas Empat.</p>
+            <p>Tempat tugas keempat.</p>
         </a>
 
-        <a href="tugas1.html" class="menu-card">
-            <div class="menu-icon blue">📚</div>
+        <a href="#tugas-akhir" class="menu-card">
+            <div class="menu-icon">🏆</div>
             <h3>Tugas Akhir</h3>
-            <p>Kumpulan tugas Akhir.</p>
+            <p>Tempat tugas akhir.</p>
         </a>
 
-        <a href="tugas1.html" class="menu-card">
-            <div class="menu-icon blue">📚</div>
+        <a href="#data" class="menu-card">
+            <div class="menu-icon">🗂️</div>
             <h3>Data</h3>
-            <p>Kumpulan data.</p>
+            <p>Tempat penyimpanan data.</p>
         </a>
 
     </div>
@@ -553,383 +446,136 @@ footer p {
 
 <!-- TUGAS 1 -->
 <section class="tugas1" id="tugas1">
-
     <div class="section-title">
-        <h2>♡ Tugas 1 - Google Form ♡</h2>
-        <p>Formulir Kepuasan Pengguna Dompet Digital DANA</p>
+        <h2>🐼 Tugas 1</h2>
+        <p>Ruang tugas pertama</p>
     </div>
 
     <div class="form-container">
-
-        <h3>Formulir Kepuasan Pengguna DANA</h3>
-
-        <p class="form-description">
-            Silakan isi formulir berikut sesuai dengan pengalaman
-            kamu sebagai pengguna dompet digital DANA.
-            Terima kasih atas partisipasinya! ♡
-        </p>
-
-        <iframe
-            class="google-form"
-            src="https://docs.google.com/forms/d/16E8ItNW9GYCIG_LmXcetD3ov4DbkrI95I_YjbpsTI7U/viewform?embedded=true"
-            title="Formulir Kepuasan Pengguna DANA"
-            loading="lazy">
-        </iframe>
-
+        <div class="panda-empty">🐼</div>
+        <h3>Belum Ada Tugas</h3>
+        <p>Bagian ini sengaja dikosongkan dan bisa diisi nanti.</p>
         <div class="form-back">
-            <a href="#menu">♡ Kembali ke Menu</a>
+            <a href="#menu">Kembali ke Menu</a>
         </div>
-
     </div>
 </section>
 
 <!-- TUGAS 2 -->
 <section class="tugas2" id="tugas2">
-
     <div class="section-title">
-        <h2>♡ Tugas 2 - Google Sheets ♡</h2>
-        <p>Tampilan data dari Google Sheets</p>
+        <h2>🐼 Tugas 2</h2>
+        <p>Ruang tugas kedua</p>
     </div>
 
     <div class="form-container">
-
-        <h3>Data Tugas 2</h3>
-
-        <p class="form-description">
-            Berikut adalah tampilan data yang terhubung dari Google Sheets. ♡
-        </p>
-
-        <iframe
-            class="google-sheet"
-            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRvmsYKKDppFFciIHKThMoVyfLZfz5pyyDY9-zsB4F1KWhUEMYoMdCst-cPyn3iTWxI7wDRdKt-8_tO/pubhtml?widget=true&amp;headers=false"
-            title="Data Tugas 2"
-            loading="lazy">
-        </iframe>
-
+        <div class="panda-empty">🐼</div>
+        <h3>Belum Ada Tugas</h3>
+        <p>Bagian ini sengaja dikosongkan dan bisa diisi nanti.</p>
         <div class="form-back">
-            <a href="#menu">♡ Kembali ke Menu</a>
+            <a href="#menu">Kembali ke Menu</a>
         </div>
-
     </div>
 </section>
 
 <!-- TUGAS 3 -->
 <section class="tugas3" id="tugas3">
-
     <div class="section-title">
-        <h2>♡ Tugas 3 ♡</h2>
-        <p>Google Form, Google Sheets, dan Looker Studio</p>
+        <h2>🐼 Tugas 3</h2>
+        <p>Ruang tugas ketiga</p>
     </div>
 
-    <!-- GOOGLE FORM -->
     <div class="form-container">
-
-        <h3>📝 Google Form Tugas 3</h3>
-
-        <p class="form-description">
-            Silakan isi formulir berikut sesuai petunjuk
-            yang tersedia. Terima kasih sudah berpartisipasi! ♡
-        </p>
-
-        <iframe
-            class="google-form"
-            src="https://docs.google.com/forms/d/e/1FAIpQLSft2eNIP2hIOFHgjFL7GbKJxFkFMlbMm9tcn_8DiSmuOucWnw/viewform?embedded=true"
-            title="Google Form Tugas 3"
-            loading="lazy">
-        </iframe>
-
-    </div>
-
-    <br><br>
-
-    <!-- GOOGLE SHEETS -->
-    <div class="form-container">
-
-        <h3>📊 Google Sheets Tugas 3</h3>
-
-        <p class="form-description">
-            Berikut adalah tampilan data dari Google Sheets
-            untuk Tugas 3. ♡
-        </p>
-
-        <iframe
-            class="google-sheet"
-            src="https://docs.google.com/spreadsheets/d/1DYOBSILfvtuO7oR-8GW0yVuPo-1wmzdhnV_KfRg9FXo/preview"
-            title="Google Sheets Tugas 3"
-            loading="lazy">
-        </iframe>
-
+        <div class="panda-empty">🐼</div>
+        <h3>Belum Ada Tugas</h3>
+        <p>Bagian ini sengaja dikosongkan dan bisa diisi nanti.</p>
         <div class="form-back">
-            <a href="https://docs.google.com/spreadsheets/d/1DYOBSILfvtuO7oR-8GW0yVuPo-1wmzdhnV_KfRg9FXo/edit?usp=sharing"
-               target="_blank" rel="noopener">
-                Buka Google Sheets
-            </a>
+            <a href="#menu">Kembali ke Menu</a>
         </div>
+    </div>
+</section>
 
+<!-- TUGAS 4 -->
+<section class="tugas4" id="tugas4">
+    <div class="section-title">
+        <h2>🐼 Tugas 4</h2>
+        <p>Ruang tugas keempat</p>
     </div>
 
-    <br><br>
-
-    <!-- LOOKER STUDIO -->
     <div class="form-container">
-
-        <h3>📈 Dashboard Tugas 3 - Looker Studio</h3>
-
-        <p class="form-description">
-            Berikut adalah tampilan dashboard laporan
-            dari Looker Studio. ♡
-        </p>
-
-        <iframe
-            width="100%"
-            height="750"
-            src="https://datastudio.google.com/embed/reporting/de73dff2-12e5-4bd4-8adb-3cb1e81a2d0a/page/vPHEG"
-            frameborder="0"
-            style="border:0"
-            allowfullscreen
-            sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-        </iframe>
-
+        <div class="panda-empty">🐼</div>
+        <h3>Belum Ada Tugas</h3>
+        <p>Bagian ini sengaja dikosongkan dan bisa diisi nanti.</p>
         <div class="form-back">
-            <a href="https://datastudio.google.com/reporting/de73dff2-12e5-4bd4-8adb-3cb1e81a2d0a"
-               target="_blank" rel="noopener">
-                Buka Dashboard Looker Studio
-            </a>
+            <a href="#menu">Kembali ke Menu</a>
         </div>
+    </div>
+</section>
 
+<!-- TUGAS AKHIR -->
+<section class="tugas-akhir" id="tugas-akhir">
+    <div class="section-title">
+        <h2>🏆 Tugas Akhir</h2>
+        <p>Ruang khusus tugas akhir</p>
     </div>
 
-    <div class="form-back">
-        <a href="#menu">♡ Kembali ke Menu</a>
+    <div class="form-container">
+        <div class="panda-empty">🐼🎋</div>
+        <h3>Tugas Akhir Belum Ada</h3>
+        <p>Bagian ini sengaja dikosongkan untuk tugas akhir nanti.</p>
+        <div class="form-back">
+            <a href="#menu">Kembali ke Menu</a>
+        </div>
+    </div>
+</section>
+
+<!-- DATA -->
+<section class="data" id="data">
+    <div class="section-title">
+        <h2>🗂️ Data</h2>
+        <p>Ruang penyimpanan data</p>
     </div>
 
+    <div class="form-container">
+        <div class="panda-empty">🐼</div>
+        <h3>Belum Ada Data</h3>
+        <p>Bagian data sengaja dikosongkan dan bisa diisi nanti.</p>
+        <div class="form-back">
+            <a href="#menu">Kembali ke Menu</a>
+        </div>
+    </div>
 </section>
 
 <!-- TENTANG WEBSITE -->
 <section class="about" id="about">
-
     <div class="section-title">
-        <h2>A Little About This Website 🌷</h2>
-        <p>My Personal Website</p>
+        <h2>Tentang Website Ini 🎋</h2>
+        <p>My Personal Panda Website</p>
     </div>
 
     <div class="about-box">
-
-        <h3>♡ Selamat datang di situs web saya ♡</h3>
+        <h3>🐼 Selamat Datang di Website Saya 🐼</h3>
 
         <p>
             Website ini dibuat sebagai media untuk
-            memperkenalkan diri, serta menampilkan
-            berbagai hasil tugas dan dokumentasi pribadi.
+            memperkenalkan diri, menampilkan berbagai
+            dokumentasi pribadi, serta menyimpan hasil tugas.
+            Website ini menggunakan tema panda yang lucu
+            dengan warna hijau lembut.
         </p>
 
         <br>
 
-        <h2>Terima kasih telah mengunjungi website ini! 💗</h2>
-
+        <h2>Terima kasih sudah berkunjung! 💚</h2>
     </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <p>♡ Website Rahimah ♡</p>
-    <p>Made with Love 🌸</p>
-    <p>Keep Growing, Keep Shining! ✨</p>
+    <p>🐼 Panda Little World 🐼</p>
+    <p>Made with Love 🎋</p>
+    <p>Keep Growing, Keep Smiling!</p>
 </footer>
-
-<!-- TOMBOL KEMBALI KE ATAS -->
-<button class="back-top" id="backTop" aria-label="Kembali ke atas">
-    ↑
-</button>
-
-<!-- JAVASCRIPT DAN GSAP -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    /* TOMBOL KEMBALI KE ATAS */
-    const backTop = document.getElementById("backTop");
-
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 350) {
-            backTop.classList.add("show");
-        } else {
-            backTop.classList.remove("show");
-        }
-
-        /* SCROLL PROGRESS */
-        const scrollable =
-            document.documentElement.scrollHeight - window.innerHeight;
-
-        const progress =
-            scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
-
-        document.getElementById("progressBar").style.width =
-            progress + "%";
-    });
-
-    backTop.addEventListener("click", function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-
-    /* ANIMASI GSAP */
-    if (typeof gsap !== "undefined" && !reduceMotion) {
-
-        gsap.registerPlugin(ScrollTrigger);
-
-        /* ANIMASI HERO */
-        const heroTimeline = gsap.timeline();
-
-        heroTimeline
-            .from(".small-title", {
-                y: -25,
-                opacity: 0,
-                duration: 0.7
-            })
-            .from(".hero h1", {
-                y: 35,
-                opacity: 0,
-                duration: 0.8
-            }, "-=0.35")
-            .from(".hero p", {
-                y: 25,
-                opacity: 0,
-                duration: 0.7
-            }, "-=0.4")
-            .from(".hero .btn", {
-                y: 20,
-                opacity: 0,
-                duration: 0.6
-            }, "-=0.35")
-            .from(".hero-image", {
-                scale: 0.65,
-                rotation: -15,
-                opacity: 0,
-                duration: 1,
-                ease: "back.out(1.7)"
-            }, "-=0.8");
-
-        /* ANIMASI GAMBAR HERO */
-        gsap.to(".hero-image", {
-            y: -15,
-            duration: 2,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut"
-        });
-
-        /* ANIMASI JUDUL SECTION */
-        gsap.utils.toArray(".section-title").forEach(function (title) {
-            gsap.from(title, {
-                y: 35,
-                opacity: 0,
-                duration: 0.8,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: title,
-                    start: "top 88%",
-                    toggleActions: "play none none none"
-                }
-            });
-        });
-
-        /* ANIMASI MENU CARD */
-        gsap.from(".menu-card", {
-            y: 45,
-            opacity: 0,
-            scale: 0.95,
-            duration: 0.7,
-            stagger: 0.12,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".menu-grid",
-                start: "top 85%",
-                toggleActions: "play none none none"
-            }
-        });
-
-        /* ANIMASI ABOUT */
-        gsap.from(".about-box", {
-            y: 45,
-            opacity: 0,
-            duration: 0.9,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".about-box",
-                start: "top 85%",
-                toggleActions: "play none none none"
-            }
-        });
-
-        /* ANIMASI FOOTER */
-        gsap.from("footer p", {
-            y: 20,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.15,
-            scrollTrigger: {
-                trigger: "footer",
-                start: "top 95%",
-                toggleActions: "play none none none"
-            }
-        });
-
-        /* ANIMASI KARTU SAAT DIARAHKAN */
-        document.querySelectorAll(".menu-card").forEach(function (card) {
-            card.addEventListener("mouseenter", function () {
-                gsap.to(card, {
-                    y: -8,
-                    scale: 1.025,
-                    duration: 0.25,
-                    ease: "power2.out"
-                });
-            });
-
-            card.addEventListener("mouseleave", function () {
-                gsap.to(card, {
-                    y: 0,
-                    scale: 1,
-                    duration: 0.3,
-                    ease: "power2.out"
-                });
-            });
-        });
-
-        /* ANIMASI FORM */
-        gsap.utils.toArray(".form-container").forEach(function (form) {
-            gsap.from(form, {
-                y: 25,
-                opacity: 0,
-                duration: 0.7,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: form,
-                    start: "top 90%",
-                    toggleActions: "play none none none"
-                }
-            });
-        });
-    }
-
-    /* TUTUP ANIMASI DAN REFRESH SAAT PINDAH MENU TUGAS */
-    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-        link.addEventListener("click", function () {
-            setTimeout(function () {
-                if (typeof ScrollTrigger !== "undefined") {
-                    ScrollTrigger.refresh();
-                }
-            }, 300);
-        });
-    });
-
-});
-</script>
 
 </body>
 </html>

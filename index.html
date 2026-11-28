@@ -199,20 +199,30 @@ body::after {
     box-shadow: 0 15px 30px #a97ec955;
 }
 
+/* FOTO HERO */
 .hero-image {
-    width: 350px;
-    height: 350px;
-    border-radius: 45% 55% 50% 50%;
-    background: rgba(255,255,255,.75);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 160px;
-    box-shadow: 0 20px 45px #c9a9d455;
+    width: 340px;
+    height: 440px;
+    border-radius: 45% 45% 40% 40% / 35% 35% 30% 30%;
+    background: #fff;
+    padding: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px #c9a9d466;
     animation: float 4s ease-in-out infinite;
     position: relative;
     z-index: 2;
-    border: 2px solid #ffffff;
+    border: 4px solid #ffffff;
+    outline: 4px solid #f3c6df;
+    flex-shrink: 0;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    border-radius: 40px;
+    display: block;
 }
 
 @keyframes float {
@@ -459,9 +469,8 @@ footer p {
     }
 
     .hero-image {
-        width: 230px;
-        height: 230px;
-        font-size: 105px;
+        width: 240px;
+        height: 320px;
     }
 
     .hero h1 {
@@ -524,9 +533,9 @@ footer p {
         </a>
     </div>
 
-   <div class="foto.jpg">
-    <img src="foto.jpg" alt="Rahimah Cantik">
-</div>
+    <div class="hero-image">
+        <img src="foto.jpg" alt="Rahimah Cantik">
+    </div>
 </header>
 
 <!-- MENU UTAMA -->
